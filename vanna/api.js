@@ -152,6 +152,7 @@ export const getCharge = async ({id}) => {
                 id
                 name
                 email
+                taxId
               }
               id
               status

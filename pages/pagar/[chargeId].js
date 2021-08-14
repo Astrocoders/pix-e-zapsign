@@ -11,14 +11,15 @@ const Purchase = ({
   amount,
   emvqrcps,
   name,
+  status,
   error,
-  redirectTo = 'https://vanna.app'
 }) => {
   if (error || !id) {
     return <div>Dados faltando</div>
   }
 
   const charge = useListenToCharge({id})
+  const isPaid = charge?.status === "PAID" || status === "PAID"
 
   const priceString = new Intl.NumberFormat('pt-BR', {
     style: 'currency',
@@ -27,8 +28,20 @@ const Purchase = ({
   }).format(amount / 100)
 
   React.useEffect(() => {
-    if(charge?.status === "PAID") {
-      window.location = redirectTo
+    if(isPaid) {
+      fetch("/api/charge/create_doc_for_signing", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+          chargeId: id
+        })
+      }).then(res => res.json()).then(({signerLink}) => {
+        window.location = signerLink
+      }).catch(error => {
+        console.log("Não foi possível obter o link de assinatura")
+      })
     } 
   }, [charge?.status])
 
@@ -95,6 +108,8 @@ export async function getServerSideProps({ query }) {
   return {
     props: {
       id: charge.id,
+      status: charge.status,
+      taxId: charge.customer.taxId,
       name: charge.customer.name,
       redirectTo: process.env.REDIRECT_TO,
       error,

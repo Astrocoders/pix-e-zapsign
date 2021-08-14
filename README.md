@@ -3,22 +3,21 @@
   <br />
 </p>
 
-# Minha Lojinha Pix
+# Pix e ZapSign
 
-Crie uma lojinha grátis em 0 segundos com o Vanna!
-A lojinha mostra seus produtos e serviços cadastrados na plataforma usando a nossa API GraphQL.
+Crie uma loja pix com contratação de servicos que automaticamente pede a assinatura de um contrato de prestacão
 
 # Como subir sua própria versão
 
 ### No Vercel
 
 Requisitos:
+1. Crie um documento modelo no ZapSign
 1. Crie sua conta no http://conta.vanna.app/
 1. Enviei seus dados e aguarde aprovação
 1. Clique no botão abaixo
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAstrocoders%2Fminha-lojinha-pix&env=VANNA_API,VANNA_SECRET,NEXT_PUBLIC_SITE_NAME,REDIRECT_TO)
-
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAstrocoders%2Fpix-e-zapsign&env=VANNA_ID,VANNA_SECRET,NEXT_PUBLIC_SITE_NAME,ZAPSIGN_MODELO_ID)
 
 ## Configuração necessária do Vanna
 
@@ -26,14 +25,9 @@ Requisitos:
 | ------- | ------- |
 | VANNA_ID | Chave da API obtida na plataforma |
 | VANNA_SECRET | Chave da API obtida na plataforma |
-| REDIRECT_TO | URL que o usuário deve ser redirecionado após a compra |
 | NEXT_PUBLIC_SITE_NAME | Nome do seu site |
-
-## Casos de uso
-
-- Redirecionamento para o Calendly após a compra
-- Redirecionamento para assinatura de um documento utilizando a https://zapsign.com.br/ por exemplo
-- Etc
+| ZAPSIGN_MODELO_ID | Id do modelo na ZapSign |
+| ZAPSIGN_TOKEN | Token de acesso ZapSign |
 
 ## Getting Started
 
