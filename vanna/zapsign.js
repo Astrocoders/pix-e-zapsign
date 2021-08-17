@@ -1,4 +1,3 @@
-import fetchToCurl from "fetch-to-curl"
 export const createDoc = ({ name, taxId }) => {
   const url = `https://api.zapsign.com.br/api/v1/models/create-doc/?api_token=${process.env.ZAPSIGN_TOKEN.trim()}`
   const body = JSON.stringify({
@@ -14,12 +13,9 @@ export const createDoc = ({ name, taxId }) => {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
-      Accept: '*/*'
     },
     body
   }
-
-  console.log(fetchToCurl(url, options));
 
   return fetch(
     url,
