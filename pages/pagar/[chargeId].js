@@ -60,7 +60,7 @@ const Purchase = ({
             <div className="flex flex-col justify-center items-center">
               <p className="text-2xl">Pagamento efetuado com sucesso!</p>
               <p className="text-1xl">
-                Aguarde, você será redirecionado para o agendamento...
+                Aguarde, você será redirecionado para a assinatura dos documentos de prestação de serviço...
               </p>
             </div>
           ) : (
